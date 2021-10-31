@@ -1,0 +1,33 @@
+<section class="login-main" style="margin: 19px;">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div formGroupName="userData">
+      <div class="md-form form-group mt-5">
+        <label for="userData.username">First Name</label>
+            <input mdbInput type="text" id="username" formControlName="username" class="form-control" placeholder="Please enter your name...">
+            <mdb-error *ngIf="loginForm.get('userData.username')?.invalid 
+            && (loginForm.get('userData.username')?.dirty || loginForm.get('userData.username')?.touched)">
+              Name cannot be empty
+            </mdb-error>
+            <mdb-success *ngIf="loginForm.get('userData.username')?.valid 
+            && (loginForm.get('userData.username')?.dirty || loginForm.get('userData.username')?.touched)">
+              Valid Name
+            </mdb-success>
+        </div>
+        <div class="md-form form-group mt-5">
+          <label for="userData.email">Email</label>
+          <input mdbInput type="email" id="email" formControlName="email" class="form-control"
+          placeholder="Please enter your email address">
+          <mdb-error *ngIf="loginForm.get('userData.email')?.invalid 
+            && (loginForm.get('userData.email')?.dirty || loginForm.get('userData.email')?.touched)">
+            Invalid email
+          </mdb-error>
+          <mdb-success *ngIf="loginForm.get('userData.email')?.valid 
+          && (loginForm.get('userData.email')?.dirty || loginForm.get('userData.email')?.touched)">
+            Valid Email
+          </mdb-success>
+        </div>
+      </div>
+    <button type="submit" class="btn btn-success" [disabled]="!gotResponse">Send</button>
+    <p *ngIf="name" style="color: aliceblue;">reveresed name is: {{name }}</p>
+  </form>
+</section>
