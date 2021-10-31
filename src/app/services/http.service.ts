@@ -16,7 +16,7 @@ export class HttpService {
     const restoredData = this.storageService.restore(this.key);
     console.log(restoredData);
 
-                                                                                    // Duplicate data check, needs to be fixed
+                                                                                    // Duplicate data check and exit condition, needs to be fixed
     if (restoredData && user.name === restoredData.name && user.email === restoredData.email) {
       console.log('Duplicate data, server call canceled');
       return;

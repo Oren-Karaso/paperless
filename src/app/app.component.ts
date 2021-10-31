@@ -44,12 +44,11 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit() {                                                      // Form's submittion and data sending to local methods
-    this.gotResponse = false;
-    this.user = new User(
+    this.gotResponse = false;                                       // changing the server response property to false
+    this.user = new User(                                           // Updating the user property form the inputs
       this.loginForm.get('userData.username').value,
       this.loginForm.get('userData.email').value
     );
-    // console.log(this.user);
     
     this.sendData(this.user);
     this.getData(this.user);
